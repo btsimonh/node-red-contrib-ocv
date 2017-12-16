@@ -1,0 +1,32 @@
+{
+  "name": "node-red-contrib-ocv",
+  "version": "0.0.1",
+  "description": "Node-RED nodes for OpenCV",
+  "main": "node.js",
+  "node-red" : {
+    "nodes": {
+      "ocv": "ocv.js"
+    }
+  },
+  "dependencies": {
+    "opencv": "peterbraden/node-opencv"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btsimonh/node-red-contrib-ocv.git"
+  },
+  "keywords": [
+    "opencv",
+    "image recognition",
+    "computer vision"
+  ],
+  "author": "btsimonh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/btsimonh/node-red-contrib-ocv/issues"
+  },
+  "homepage": "https://github.com/btsimonh/node-red-contrib-ocv#readme"
+}
