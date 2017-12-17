@@ -41,6 +41,15 @@ Encodes an image to jpeg data in a buffer
 
 calculates the difference between an image and a running average background using MOG2 from Opencv
 
+## ocv contours
+
+extracts contours from an image synchronously using
+
+> var cnts = im.findContours(node.api.cv.RETR_EXTERNAL, node.api.cv.CHAIN_APPROX_SIMPLE);
+
+## ocv template
+
+not actually a node - template.js and template.html are files to use as templates for creating a new node.
 
 # API Notes
 
@@ -98,7 +107,7 @@ If there is any problem, the function will return null, which indicates there is
 
 ### getimage(node, msg, name)
 
-Retrieves the named image.  Name must have been retrieved with getimagename.
+Retrieves the named image/data.  If name is not provided, then it will use getimagename to get one.
 
 By having a function for this rather than just accessing the msg directly, we allow for future enhancements.
 
@@ -122,10 +131,9 @@ example:
 ```
     node.api = global.get('ocv-api');
     node.name = 'myname';
-    var toprocess = api.getimagename(node, msg);
+    var im = node.api.getimage(node, msg);
     // if error or no processing required
-    if (toprocess !== null){
-       var im = msg.payload.frame.data[toprocess];
+    if (im){
        (do something with img)
        api.sendframe(node, outputdata, msg);
        if (releaseinput){

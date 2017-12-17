@@ -39,7 +39,7 @@ module.exports = {
 		}
 
 		// toprocess is the configured named data to process from the frame
-		var toprocess = node.toprocess;
+		var toprocess = node.toprocess || '';
 
 		// if not configured, then we use msg.frame.name - the name of the 
 		// last OCV node to send
@@ -92,6 +92,8 @@ module.exports = {
 	},
 
 	getimage: function(node, msg, name){
+		if (!name)
+			name = node.api.getimagename(node, msg);
 		if (msg.payload && msg.payload.frame && msg.payload.frame.data && msg.payload.frame.data[name]){
 			return msg.payload.frame.data[name];
 		} else {
