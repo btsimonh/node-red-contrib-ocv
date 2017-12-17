@@ -1,0 +1,42 @@
+
+<!-- ocv-videoin -->
+<script type="text/javascript">
+    RED.nodes.registerType('ocv-videoin',{
+        category: "ocv",
+        icon: "alert.png",
+        color: "#FFAAAA",
+        inputs: 1,
+        outputs: 1,
+        defaults: {
+            name: { value: "" },
+            FPS: { value: 25 },
+            video: { value: 0 }
+        },
+        label: function() {
+            return this.name || "videoin"
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ocv-videoin">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <input type="number" id="node-input-FPS" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-FPS" style="width: 70%;"> Frames per second</label>
+    </div>
+    <div class="form-row">
+        <input type="number" id="node-input-video" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-video" style="width: 70%;"> Video input to open</label>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ocv-videoin">
+   <p><b>OCV Video input</b></p>
+   <p>If <code>msg.payload</code> is set to true, 1, or 'start', then the video input will be started</p>
+   <p>If <code>msg.payload</code> is set to false, 0, or 'stop', then the video input will be stopped</p>
+   <p>Outputs frames for onward OCV processing tagged with the name of this node</p>
+</script>
+

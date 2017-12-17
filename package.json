@@ -5,7 +5,10 @@
   "main": "node.js",
   "node-red" : {
     "nodes": {
-      "ocv": "ocv.js"
+      "videoin": "videoin.js",
+      "resize": "resize.js",
+      "bg": "bg.js",
+      "encode": "encode.js"
     }
   },
   "dependencies": {
