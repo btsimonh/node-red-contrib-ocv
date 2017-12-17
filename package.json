@@ -9,6 +9,7 @@
       "resize": "resize.js",
       "bg": "bg.js",
       "getcontours": "getcontours.js",
+      "order": "order.js",
       "encode": "encode.js"
     }
   },

@@ -1,0 +1,46 @@
+
+<!-- ocv-encode -->
+<script type="text/javascript">
+    RED.nodes.registerType('ocv-order',{
+        category: "ocv",
+        icon: "alert.png",
+        color: "#FFAAAA",
+        inputs: 1,
+        outputs: 1,
+        defaults: {
+            name: { value: "" },
+            toprocess: { value: "" },
+            releaseinput: { value: true },
+            releaseall: { value: true }
+        },
+        label: function() {
+            return this.name || "order"
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ocv-order">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-toprocess"><i class="icon-tag"></i> Node name to process</label>
+        <input type="text" id="node-input-toprocess" placeholder="Node Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-releaseinput"><i class="icon-tag"></i> Release Input</label>
+        <input type="checkbox" id="node-input-releaseinput">
+    </div>
+    <div class="form-row">
+        <label for="node-input-releaseall"><i class="icon-tag"></i> Release All</label>
+        <input type="checkbox" id="node-input-releaseall"">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ocv-order">
+   <p><b>OCV Order</b></p>
+   <p>Queues frames and release them in order</p>
+</script>
+<!-- end ocv-encode -->
+

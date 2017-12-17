@@ -41,6 +41,12 @@ Encodes an image to jpeg data in a buffer
 
 calculates the difference between an image and a running average background using MOG2 from Opencv
 
+## ocv order
+
+queues messages and emits them in frame order.
+
+Note: currently this will be fragile if a frame is lost (no protection against too many frames being stored).
+
 ## ocv contours
 
 extracts contours from an image synchronously using
