@@ -18,6 +18,7 @@ module.exports = {
 		// one og these is sent at startup to reset variables in the whole flow
 		if (msg.cmd){
 			if (msg.cmd === 'reset'){
+				node.status({});
 				if (node.reset){
 					node.reset(node, msg);
 				}

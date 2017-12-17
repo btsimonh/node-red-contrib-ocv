@@ -8,6 +8,7 @@
       "videoin": "videoin.js",
       "resize": "resize.js",
       "bg": "bg.js",
+      "getcontours": "getcontours.js",
       "encode": "encode.js"
     }
   },
