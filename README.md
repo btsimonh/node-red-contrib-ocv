@@ -76,6 +76,7 @@ for getimagename( obj, msg ) and sendframe(obj, data, msg ):
 'obj' in a call is normally the node itself.  The calls will use the following functions and variables:
 
 ```
+obj.api - must be the api structure
 obj.status - std NR function
 obj.error - std NR function
 obj.warn - std NR function
@@ -95,11 +96,17 @@ If there is any problem, an error will be show using status, and obj.error() wil
 
 If there is any problem, the function will return null, which indicates there is no processing to do.
 
-### releaseone(msg, name)
+### getimage(node, msg, name)
+
+Retrieves the named image.  Name must have been retrieved with getimagename.
+
+By having a function for this rather than just accessing the msg directly, we allow for future enhancements.
+
+### releaseone(obj, msg, name)
 
 Releases the memory for the named image/data in the frame in the msg
 
-### releaseall(msg)
+### releaseall(obj, msg)
 
 Releases the memory for all the images/data in the frame in the msg
 
@@ -113,7 +120,7 @@ creates a new msg from the frame in msg, add 'data' to the frame using 'obj.name
 example:
 
 ```
-    var api = global.get('ocv-api');
+    node.api = global.get('ocv-api');
     node.name = 'myname';
     var toprocess = api.getimagename(node, msg);
     // if error or no processing required
@@ -122,11 +129,11 @@ example:
        (do something with img)
        api.sendframe(node, outputdata, msg);
        if (releaseinput){
-           api.releaseone(msg, toprocess);
+           api.releaseone(node, msg, toprocess);
        }
     }
     if (releaseall){
-        api.releaseall(msg);
+        api.releaseall(node, msg);
     }
 ```
 
