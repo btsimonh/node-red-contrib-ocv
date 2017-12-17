@@ -13,13 +13,15 @@ var ocvapi = global.get("ocv-api");
 
 and contains:
 
-```{
+```
+{
    cv: node-opencv root object,
    getimagename( obj, msg ): return the input image name or null, may set status and produce warnings\n"+
    releaseone( msg, name ): release the named img/data from the frame in the msg\n"+
    releaseall( msg ): release all images/data in the frame in the msg\n"+
    sendframe( obj, data, msg ): send a NEW msg containing the original frame from msg plus the data named as obj.name\n"+
- }```
+}
+```
 
 See API notes below.
 
@@ -52,12 +54,14 @@ A frame is stored in a Node-Red message at msg.payload.frame
 
 The base structure is ;
 
-```frame: {
+```
+frame: {
    number: the frame number since start
    data:{ - a container for named data within the frame, e.g.:
      videoin: - opencv mat representing the frame read by the node 'videoin'
    }
-}```
+}
+```
 
 Frame data is generally named according to the node name of the originating node.
 
@@ -106,7 +110,8 @@ creates a new msg from the frame in msg, add 'data' to the frame using 'obj.name
 
 example:
 
-```    var api = global.get('ocv-api');
+```
+    var api = global.get('ocv-api');
     node.name = 'myname';
     var toprocess = api.getimagename(node, msg);
     // if error or no processing required
@@ -120,5 +125,6 @@ example:
     }
     if (releaseall){
         api.releaseall(msg);
-    }```
+    }
+```
 
