@@ -75,13 +75,15 @@ for getimagename( obj, msg ) and sendframe(obj, data, msg ):
 
 'obj' in a call is normally the node itself.  The calls will use the following functions and variables:
 
-```obj.status - std NR function
+```
+obj.status - std NR function
 obj.error - std NR function
 obj.warn - std NR function
 obj.send(msg) - std NR function
 obj.toprocess - the name of the data to be processed from the frame
 obj.haserrored - a flag indicating that an error has occurred since 'reset'.
-obj.reset(obj) - an optional function indicating a msg received was a rest message.```
+obj.reset(obj) - an optional function indicating a msg received was a rest message.
+```
 
 ### getimagename( obj, msg )
 
