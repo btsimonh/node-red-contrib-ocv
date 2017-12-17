@@ -46,11 +46,11 @@ module.exports = function(RED) {
 				var f = node.frames[i];
 				if (f.data){
 					var keys = Object.keys(f.data);
-					for (var i = keys.length-1; i >= 0; i--){
-						if (f.data[keys[i]].hasOwnProperty('release')){
-							f.data[keys[i]].release();
+					for (var j = keys.length-1; j >= 0; j--){
+						if (f.data[keys[j]].hasOwnProperty('release')){
+							f.data[keys[j]].release();
 						}
-						delete f.data[keys[i]];
+						delete f.data[keys[j]];
 					}
 				}
 			}
@@ -68,11 +68,11 @@ module.exports = function(RED) {
 						var f = node.frames[i];
 						if (f.data){
 							var keys = Object.keys(f.data);
-							for (var i = keys.length-1; i >= 0; i--){
-								if (f.data[keys[i]].hasOwnProperty('release')){
-									f.data[keys[i]].release();
+							for (var j = keys.length-1; j >= 0; j--){
+								if (f.data[keys[j]].hasOwnProperty('release')){
+									f.data[keys[j]].release();
 								}
-								delete f.data[keys[i]];
+								delete f.data[keys[j]];
 							}
 						}
 					}
